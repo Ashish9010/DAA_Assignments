@@ -25,7 +25,7 @@ class Queue{
         return head == NULL;
     }
 
-    void add(int item){
+    void enqueue(int item){
 	    Node* temp = new Node(item);
         if(tail == NULL){
             tail = head = temp;
@@ -35,7 +35,7 @@ class Queue{
 	    tail = temp;
     }
 
-	int remove(){
+	int dequeue(){
 	    if(isEmpty()){
 			cout<<"queue is empty"<<endl;
 			return -1;
@@ -44,34 +44,30 @@ class Queue{
 	    head = head->next;
 	    return removed;
     }
-
-	int peek(){
-	    if(isEmpty()){
-			cout<<"queue is empty"<<endl;
-			return -1;
-		}
-	    return head->data;
-    }
 	
     void display(){
-	    while(head != NULL) {
-		    cout<< head->data << " ";
-		    head = head->next;
+        Node* temp = head;
+	    while(temp != NULL) {
+		    cout<< temp->data << " ";
+		    temp = temp->next;
 	    }
     }
 };
 int main(){
 	Queue q;
-    q.add(1);
-    q.add(2);
-	q.add(3);
-	q.add(4);
-	q.add(5);
-	// q.display();
+    q.enqueue(1);
+    q.enqueue(2);
+	q.enqueue(3);
+	q.enqueue(4);
+	q.enqueue(5);
 
+    cout<<"Queue elements are : "<<endl;
+	q.display();
+    cout<<endl;
+
+    cout<<"Dequeuing the elements: "<<endl;
 	while(!q.isEmpty()){
-        cout<<q.peek()<<endl;
-        q.remove();
+        cout<<q.dequeue()<<" ";
     }
 	return 0;
 }

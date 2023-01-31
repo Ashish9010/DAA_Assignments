@@ -4,9 +4,7 @@ class Node {
 public:
 	int data;
 	Node* next;
-
-	Node(int n)
-	{
+	Node(int n){
 		this->data = n;
 		this->next = NULL;
 	}
@@ -21,11 +19,7 @@ class Queue{
 		tail = NULL;
     }
 
-    bool isEmpty(){
-        return head == NULL;
-    }
-
-    void add(int item){
+    void enqueue(int item){
 	    Node* temp = new Node(item);
         if(tail == NULL){
             tail = head = temp;
@@ -35,43 +29,22 @@ class Queue{
 	    tail = temp;
     }
 
-	int remove(){
-	    if(isEmpty()){
-			cout<<"queue is empty"<<endl;
-			return -1;
-		}
-		int removed = head->data;
-	    head = head->next;
-	    return removed;
-    }
-
-	int peek(){
-	    if(isEmpty()){
-			cout<<"queue is empty"<<endl;
-			return -1;
-		}
-	    return head->data;
-    }
-	
     void display(){
 	    while(head != NULL) {
 		    cout<< head->data << " ";
 		    head = head->next;
 	    }
     }
+
 };
 int main(){
 	Queue q;
-    q.add(1);
-    q.add(2);
-	q.add(3);
-	q.add(4);
-	q.add(5);
-	// q.display();
+    q.enqueue(1);
+    q.enqueue(2);
+	q.enqueue(3);
+	q.enqueue(4);
+	q.enqueue(5);
+	q.display();
 
-	while(!q.isEmpty()){
-        cout<<q.peek()<<endl;
-        q.remove();
-    }
 	return 0;
 }
