@@ -2,7 +2,7 @@
 #define ll long long
 using namespace std;
 
- int isSubstring(string s,int ls,string p,int lp){
+int isSubstring(string s,int ls,string p,int lp){
     for (int i = 0; i < ls-lp+1; i++) {
         bool ans = true;
         for (int j = 0; j < lp; j++) {
