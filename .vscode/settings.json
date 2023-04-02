@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "random": "cpp",
-        "floyd_warshall_algorithm": "cpp"
+        "floyd_warshall_algorithm": "cpp",
+        "flyod_warshall_algorithm": "cpp",
+        "knapsack_algoruthm": "cpp"
     }
 }
